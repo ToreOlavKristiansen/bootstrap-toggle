@@ -58,7 +58,7 @@
 			.addClass(this._offstyle + ' ' + size + ' active')
 		var $toggleHandle = $('<span class="toggle-handle btn btn-default">')
 			.addClass(size)
-		var $toggleGroup = $('<div class="toggle-group">')
+		var $toggleGroup = $('<div>')
 			.append($toggleOn, $toggleOff, $toggleHandle)
 		var $toggle = $('<div class="toggle btn" data-toggle="toggle">')
 			.addClass( this.$element.prop('checked') ? this._onstyle : this._offstyle+' off' )
@@ -77,6 +77,7 @@
 		var height = this.options.height || Math.max($toggleOn.outerHeight(), $toggleOff.outerHeight())
 		$toggleOn.addClass('toggle-on')
 		$toggleOff.addClass('toggle-off')
+        $toggleGroup.addClass('toggle-group')
 		this.$toggle.css({ width: width, height: height })
 		if (this.options.height) {
 			$toggleOn.css('line-height', $toggleOn.height() + 'px')
