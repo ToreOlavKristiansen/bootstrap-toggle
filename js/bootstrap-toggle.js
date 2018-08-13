@@ -72,9 +72,14 @@
 			$toggleGroup: $toggleGroup
 		})
 		this.$toggle.append($toggleGroup)
-
-		var width = this.options.width || Math.max($toggleOn.outerWidth(), $toggleOff.outerWidth())+($toggleHandle.outerWidth()/2)
-		var height = this.options.height || Math.max($toggleOn.outerHeight(), $toggleOff.outerHeight())
+        var $toggleOnClone = $toggleOn.clone().css("visibility", "hidden").appendTo($('body'));
+        var $toggleOffClone = $toggleOff.clone().css("visibility", "hidden").appendTo($('body'));
+        var $toggleHandleClone = $toggleHandle.clone().css("visibility", "hidden").appendTo($('body'));
+        var width = this.options.width || Math.max($toggleOnClone.outerWidth(), $toggleOffClone.outerWidth()) + ($toggleHandleClone.outerWidth() / 2)
+        var height = this.options.height || Math.max($toggleOnClone.outerHeight(), $toggleOffClone.outerHeight())
+        $toggleOnClone.remove();
+        $toggleOffClone.remove();
+        $toggleHandleClone.remove();
 		$toggleOn.addClass('toggle-on')
 		$toggleOff.addClass('toggle-off')
         $toggleGroup.addClass('toggle-group')
